@@ -196,6 +196,11 @@ source $BIN_DIR/steps/pylibmc
 # Libffi support.
 source $BIN_DIR/steps/cryptography
 
+# Install ppyldap if needed.
+if grep -q pyldap requirements.txt; then
+    source $BIN_DIR/steps/pyldap
+fi
+
 # Install dependencies with Pip (where the magic happens).
 source $BIN_DIR/steps/pip-install
 
